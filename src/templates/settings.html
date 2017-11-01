@@ -1,0 +1,10 @@
+{% import "_includes/forms" as forms %}
+
+{{ forms.textField({
+    label: 'Default tab title'|t,
+    instructions: 'This will be a the title of the tab created for every new section'|t,
+    id: 'tabTitle',
+    name: 'tabTitle',
+    value: settings['tabTitle'],
+    errors: settings.getErrors('tabTitle')
+}) }}
