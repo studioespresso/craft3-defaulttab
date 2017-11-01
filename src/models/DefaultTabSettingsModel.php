@@ -11,6 +11,14 @@ use craft\base\model;
  */
 class DefaultTabSettingsModel extends Model {
 
+	/**
+	 * @var string
+	 */
 	public $tabTitle;
+
+	/**
+	 * @var bool
+	 */
+	public $hasTitleField = true;
 	
 }
