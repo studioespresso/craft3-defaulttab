@@ -20,5 +20,10 @@ class DefaultTabSettingsModel extends Model {
 	 * @var bool
 	 */
 	public $hasTitleField = true;
+
+	/**
+	 * @var array
+	 */
+    public $defaultGroups = array();
 	
 }

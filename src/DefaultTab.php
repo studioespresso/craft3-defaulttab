@@ -66,8 +66,14 @@ class DefaultTab extends \craft\base\Plugin
 	 */
 	protected function settingsHtml(): string
 	{
+		Craft::$app->fields->getAllGroups();
+		$fieldGroups = [];
+		foreach(Craft::$app->fields->getAllGroups() as $group) {
+			$fieldGroups[$group->id] = $group->name;
+		}
 		return Craft::$app->view->renderTemplate('defaulttab/settings', [
 			'settings' => $this->getSettings(),
+			'fieldGroups' => $fieldGroups,
 		]);
 	}
 

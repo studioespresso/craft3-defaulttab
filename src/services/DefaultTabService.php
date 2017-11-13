@@ -29,6 +29,17 @@ class DefaultTabService extends Component {
 
 			$postedFieldLayout = array( $tabTitle => array() );
 
+			if ( is_array( $this->pluginSettings->defaultGroups ) ) {
+				foreach ( $this->pluginSettings->defaultGroups as $groupId ) {
+					$fieldGroup        = Craft::$app->fields->getGroupById( $groupId );
+					$fieldGroupFields  = Craft::$app->fields->getFieldsByGroupId( $groupId );
+					$fieldGroupFields  = array_map( function ( $field ) {
+						return $field->id;
+					}, $fieldGroupFields );
+					$postedFieldLayout = array_merge( $postedFieldLayout, [ $fieldGroup->name => $fieldGroupFields ] );
+				}
+			}
+
 			$fieldLayout       = Craft::$app->fields->assembleLayout( $postedFieldLayout );
 			$fieldLayout->type = Entry::class;
 			$entryType->setFieldLayout( $fieldLayout );
