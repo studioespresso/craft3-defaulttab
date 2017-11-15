@@ -13,6 +13,7 @@ use craft\services\Sections;
 use studioespresso\defaulttab\models\DefaultTabSettingsModel;
 use studioespresso\defaulttab\services\DefaultTabService;
 use yii\base\Event;
+use yii\base\Model;
 
 /**
  * Plugin represents the Default Tab plugin.
@@ -28,47 +29,61 @@ class DefaultTab extends \craft\base\Plugin
      */
     public static $plugin;
 
-	/**
-	 * @var bool
-	 */
-	public $hasCpSettings = true;
+    /**
+     * @var bool
+     */
+    public $hasCpSettings = true;
 
     public function init()
     {
         self::$plugin = $this;
-	    Event::on(
-	    	Sections::class,
-		    Sections::EVENT_AFTER_SAVE_SECTION,
-		    function(SectionEvent $section) {
-	    		if ($section->isNew) {
-	    			$service = new DefaultTabService();
-	    			$service->addTab($section->section);
-			    }
-		    }
-	    );
+        Event::on(
+            Sections::class,
+            Sections::EVENT_AFTER_SAVE_SECTION,
+            function (SectionEvent $section) {
+                if ($section->isNew) {
+                    $service = new DefaultTabService();
+                    $service->addTab($section->section);
+                }
+            }
+        );
+        Event::on(
+        	DefaultTabSettingsModel::class,
+	        Model::EVENT_BEFORE_VALIDATE,
+	        function($event) {
+        		if(!isset(Craft::$app->request->post('settings')['defaultGroups'])) {
+			        $event->sender->setAttributes(array('defaultGroups' => false), false);
+		        };
+	        }
+        );
     }
 
-	/**
-	 * Creates and returns the model used to store the plugin’s settings.
-	 *
-	 * @return \craft\base\Model|null
-	 */
-	protected function createSettingsModel()
-	{
-		return new DefaultTabSettingsModel();
-	}
+    /**
+     * Creates and returns the model used to store the plugin’s settings.
+     *
+     * @return \craft\base\Model|null
+     */
+    protected function createSettingsModel()
+    {
+        return new DefaultTabSettingsModel();
+    }
 
-	/**
-	 * @return string
-	 * @throws \yii\base\Exception
-	 * @throws \Twig_Error_Loader
-	 * @throws \RuntimeException
-	 */
-	protected function settingsHtml(): string
-	{
-		return Craft::$app->view->renderTemplate('defaulttab/settings', [
-			'settings' => $this->getSettings(),
-		]);
-	}
-
+    /**
+     * @return string
+     * @throws \yii\base\Exception
+     * @throws \Twig_Error_Loader
+     * @throws \RuntimeException
+     */
+    protected function settingsHtml(): string
+    {
+        Craft::$app->fields->getAllGroups();
+        $fieldGroups = [];
+        foreach (Craft::$app->fields->getAllGroups() as $group) {
+            $fieldGroups[$group->id] = $group->name;
+        }
+        return Craft::$app->view->renderTemplate('defaulttab/settings', [
+            'settings' => $this->getSettings(),
+            'fieldGroups' => $fieldGroups,
+        ]);
+    }
 }
