@@ -13,6 +13,7 @@ use craft\services\Sections;
 use studioespresso\defaulttab\models\DefaultTabSettingsModel;
 use studioespresso\defaulttab\services\DefaultTabService;
 use yii\base\Event;
+use yii\base\Model;
 
 /**
  * Plugin represents the Default Tab plugin.
@@ -45,6 +46,15 @@ class DefaultTab extends \craft\base\Plugin
                     $service->addTab($section->section);
                 }
             }
+        );
+        Event::on(
+        	DefaultTabSettingsModel::class,
+	        Model::EVENT_BEFORE_VALIDATE,
+	        function($event) {
+        		if(!isset(Craft::$app->request->post('settings')['defaultGroups'])) {
+			        $event->sender->setAttributes(array('defaultGroups' => false), false);
+		        };
+	        }
         );
     }
 
