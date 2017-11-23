@@ -1,7 +1,7 @@
 {
   "name": "studioespresso/defaulttab",
   "description": "Add a standard tab to your new sections",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "type": "craft-plugin",
   "keywords": [
     "cms",
@@ -17,12 +17,12 @@
   ],
   "support": {
     "email": "support@studioespresso.co",
-    "issues": "https://studioespresso.co",
-    "source": "https://studioespresso.co",
-    "docs": "https://studioespresso.co"
+    "issues": "https://github.com/studioespresso/craft3-defaulttab/issues",
+    "source": "https://github.com/studioespresso/craft3-defaulttab",
+    "docs": "https://github.com/studioespresso/craft3-defaulttab"
   },
   "require": {
-    "craftcms/cms": "~3.0.0-beta.1"
+    "craftcms/cms": "dev-release/3.0.0-RC1"
   },
     "autoload": {
         "psr-4": {
