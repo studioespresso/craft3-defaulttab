@@ -22,7 +22,7 @@
     "docs": "https://github.com/studioespresso/craft3-defaulttab"
   },
   "require": {
-    "craftcms/cms": "dev-release/3.0.0-RC1"
+    "craftcms/cms": "^3.0.0-RC1"
   },
     "autoload": {
         "psr-4": {
