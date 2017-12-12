@@ -37,7 +37,7 @@
   ],
   "extra": {
     "name": "Default Tab",
-    "handle": "defaulttab",
+    "handle": "default-tab",
     "class": "studioespresso\\defaulttab\\DefaultTab"
   }
 }
