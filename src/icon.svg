@@ -1,1 +1,26 @@
-<?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg enable-background="new 0 0 128 128" id="Layer_1" version="1.1" viewBox="0 0 128 128" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><circle cx="64" cy="64" fill="#4B5F83" id="circle" r="64"/><g id="icon"><path d="M95,96H33c-2.2,0-4-1.8-4-4V37c0-2.2,1.8-4,4-4h62c2.2,0,4,1.8,4,4v55C99,94.2,97.2,96,95,96z" fill="#FFFFFF" id="bg"/><g id="text"><rect fill="#E6E6E6" height="4" id="XMLID_2_" width="33" x="56" y="57"/><rect fill="#E6E6E6" height="4" id="XMLID_7_" width="33" x="56" y="65"/><rect fill="#E6E6E6" height="4" id="XMLID_8_" width="50" x="39" y="73"/><rect fill="#E6E6E6" height="4" id="XMLID_9_" width="50" x="39" y="81"/></g><rect fill="#22A7F0" height="12" id="img" width="12" x="39" y="57"/><path d="M95,33H33c-2.2,0-4,1.8-4,4v4.1V42v4h70v-4v-0.9V37C99,34.8,97.2,33,95,33z" fill="#E6E6E6" id="header"/><circle cx="36" cy="39.8" fill="#CF000F" id="red" r="2"/><circle cx="42" cy="39.8" fill="#E67E22" id="orange" r="2"/><circle cx="48" cy="39.8" fill="#26A65B" id="green" r="2"/></g></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="128px" height="128px" viewBox="0 0 128 128" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Untitled</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon" fill-rule="nonzero">
+            <circle id="circle" fill="#24488E" cx="64" cy="64" r="64"></circle>
+            <g transform="translate(29.000000, 33.000000)">
+                <path d="M66,63 L4,63 C1.8,63 0,61.2 0,59 L0,4 C0,1.8 1.8,0 4,0 L66,0 C68.2,0 70,1.8 70,4 L70,59 C70,61.2 68.2,63 66,63 Z" id="bg" fill="#FFFFFF"></path>
+                <g id="text" transform="translate(10.000000, 24.000000)" fill="#E6E6E6">
+                    <rect id="XMLID_2_" x="17" y="0" width="33" height="4"></rect>
+                    <rect id="XMLID_7_" x="17" y="8" width="33" height="4"></rect>
+                    <rect id="XMLID_8_" x="0" y="16" width="50" height="4"></rect>
+                    <rect id="XMLID_9_" x="0" y="24" width="50" height="4"></rect>
+                </g>
+                <rect id="img" fill-opacity="0.569661458" fill="#274A9F" x="10" y="24" width="12" height="12"></rect>
+                <path d="M66,0 L4,0 C1.8,0 0,1.8 0,4 L0,8.1 L0,9 L0,13 L70,13 L70,9 L70,8.1 L70,4 C70,1.8 68.2,0 66,0 Z" id="header" fill="#E6E6E6"></path>
+                <circle id="red" fill="#CF000F" cx="7" cy="6.8" r="2"></circle>
+                <circle id="orange" fill="#E67E22" cx="13" cy="6.8" r="2"></circle>
+                <circle id="green" fill="#26A65B" cx="19" cy="6.8" r="2"></circle>
+            </g>
+        </g>
+    </g>
+</svg>
