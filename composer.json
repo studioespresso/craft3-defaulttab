@@ -2,7 +2,7 @@
   "name": "studioespresso/defaulttab",
   "description": "Add a standard tab to your new sections",
   "type": "craft-plugin",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "keywords": [
     "cms",
     "craftcms",
