@@ -22,7 +22,8 @@ class DefaultTabService extends Component {
 	 * @param Section $section
 	 */
 	public function addTab( Section $section ) {
-		$tabTitle = $this->pluginSettings->tabTitle ? $this->pluginSettings->tabTitle : Craft::t('app', 'Content');
+	    $title = $this->pluginSettings->tabTitle ? Craft::$app->view->renderObjectTemplate($this->pluginSettings->tabTitle, ['section' => $section])  : Craft::t('app', 'Content');
+		$tabTitle =  $title;
 
 		$entryTypes = Craft::$app->sections->getEntryTypesBySectionId( $section->id );
 		foreach ( $entryTypes as $entryType ) {
