@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.0 - 2018-09-03
+### Fixed
+* The default tab name is now parse as twig so you can use the section title or handle as title automatically [#5](https://github.com/studioespresso/craft3-defaulttab/issues/5)
+* Fixed a bug where the plugin wouldn't work for single sections
 
 ## 1.2.4 - 2018-05-21
 ### Fixed
