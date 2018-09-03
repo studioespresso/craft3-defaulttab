@@ -2,7 +2,7 @@
 
 {{ forms.textField({
     label: 'Default tab title'|t,
-    instructions: 'This will be a the title of the tab created for every new section'|t,
+    instructions: 'This will be a the title of the tab created for every new section. <br>You can use twig in this field and have access to the section object (eg: {section.name} or {section.handle})'|t,
     id: 'tabTitle',
     name: 'tabTitle',
     value: settings['tabTitle'],
