@@ -44,16 +44,13 @@ class DefaultTabService extends Component {
 			$fieldLayout       = Craft::$app->fields->assembleLayout( $postedFieldLayout );
 			$fieldLayout->type = Entry::class;
 			$entryType->setFieldLayout( $fieldLayout );
+
 			if($this->pluginSettings->hasTitleField) {
 				$entryType->hasTitleField = true;
+				$entryType->titleLabel = Craft::t('app', 'Title');
 			}
 
-			if ( Craft::$app->sections->saveEntryType( $entryType ) ) {
-
-			} else {
-
-			}
-
+            Craft::$app->sections->saveEntryType( $entryType );
 		}
 
 	}
