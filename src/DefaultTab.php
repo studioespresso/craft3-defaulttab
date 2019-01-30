@@ -48,13 +48,13 @@ class DefaultTab extends \craft\base\Plugin
             }
         );
         Event::on(
-        	DefaultTabSettingsModel::class,
-	        Model::EVENT_BEFORE_VALIDATE,
-	        function($event) {
-        		if(!isset(Craft::$app->request->post('settings')['defaultGroups'])) {
-			        $event->sender->setAttributes(array('defaultGroups' => false), false);
-		        };
-	        }
+            DefaultTabSettingsModel::class,
+            Model::EVENT_BEFORE_VALIDATE,
+            function ($event) {
+                if (!isset(Craft::$app->request->post('settings')['defaultGroups'])) {
+                    $event->sender->setAttributes(array('defaultGroups' => false), false);
+                };
+            }
         );
     }
 
