@@ -6,9 +6,7 @@
 namespace studioespresso\defaulttab;
 
 use craft;
-use craft\events\FieldLayoutEvent;
-use craft\events\SectionEvent;
-use craft\models\EntryType;
+use craft\events\EntryTypeEvent;
 use craft\services\Sections;
 use studioespresso\defaulttab\models\DefaultTabSettingsModel;
 use studioespresso\defaulttab\services\DefaultTabService;
@@ -41,11 +39,11 @@ class DefaultTab extends \craft\base\Plugin
         self::$plugin = $this;
         Event::on(
             Sections::class,
-            Sections::EVENT_AFTER_SAVE_SECTION,
-            function (SectionEvent $section) {
-                if ($section->isNew) {
+            Sections::EVENT_BEFORE_SAVE_ENTRY_TYPE,
+            function (EntryTypeEvent $event) {
+                if ($event->isNew) {
                     $service = new DefaultTabService();
-                    $service->addTab($section->section);
+                    $service->addTab($event->entryType);
                 }
             }
         );

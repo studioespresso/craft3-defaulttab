@@ -5,8 +5,8 @@ namespace studioespresso\defaulttab\services;
 use Craft;
 use craft\base\Component;
 use craft\elements\Entry;
+use craft\models\EntryType;
 use craft\models\Section;
-use GuzzleHttp\Client;
 use studioespresso\defaulttab\DefaultTab;
 
 
@@ -21,13 +21,12 @@ class DefaultTabService extends Component {
 	/**
 	 * @param Section $section
 	 */
-	public function addTab( Section $section ) {
+	public function addTab( EntryType $entryType) {
+	    $section = Craft::$app->getSections()->getSectionById($entryType->sectionId);
 	    $title = $this->pluginSettings->tabTitle ? Craft::$app->view->renderObjectTemplate($this->pluginSettings->tabTitle, ['section' => $section])  : Craft::t('app', 'Content');
 		$tabTitle =  $title;
-
-		$entryTypes = Craft::$app->sections->getEntryTypesBySectionId( $section->id );
+        $entryTypes = [$entryType];
 		foreach ( $entryTypes as $entryType ) {
-
 			$postedFieldLayout = array( $tabTitle => array() );
 
 			if ( is_array( $this->pluginSettings->defaultGroups ) ) {
@@ -50,7 +49,6 @@ class DefaultTabService extends Component {
 				$entryType->titleLabel = Craft::t('app', 'Title');
 			}
 
-            Craft::$app->sections->saveEntryType( $entryType );
 		}
 
 	}
