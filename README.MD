@@ -1,7 +1,8 @@
 # Default Tab for Craft CMS 3.x
 
-<img src="http://studioespresso.co/assets/plugins/craft_defaulttab_banner.png">
+This plugin is no longer maintained since Craft handles this better since Craft 3.4.
 
+---
 When building sites with Craft CMS, you've probably done this a couple of times: you create a new section, you go to add fields and the first thing you have to do is add a new tab. Every time. This plugin aims to fix that 🎉.
 
 ![Screenshot](screenshots/screenshot_1.png)
